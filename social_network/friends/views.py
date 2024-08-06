@@ -31,7 +31,6 @@ class SendFriendRequestView(generics.CreateAPIView):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         
-        # Get the recipient's ID and name
         recipient_id = request.data.get('to_user')
         recipient = User.objects.filter(id=recipient_id).first()
         
