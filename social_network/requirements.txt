@@ -1,0 +1,8 @@
+Django>=3.2,<4.0
+djangorestframework
+djangorestframework-simplejwt
+django-filter
+drf-yasg
+gunicorn
+psycopg2-binary
+django-ratelimit

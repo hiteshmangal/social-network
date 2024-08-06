@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: social_network
+      POSTGRES_USER: social_user
+      POSTGRES_PASSWORD: securepassword123
+
+  web:
+    build: .
+    command: gunicorn --bind 0.0.0.0:8000 social_network.wsgi:application
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_DB=social_network
+      - POSTGRES_USER=social_user
+      - POSTGRES_PASSWORD=securepassword123
+      - POSTGRES_HOST=db
+
+volumes:
+  postgres_data:
