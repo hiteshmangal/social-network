@@ -30,7 +30,7 @@ This is a social networking API built with Django Rest Framework.
     docker-compose run web python manage.py createsuperuser
     ```
 
-5. The API will be available at http://localhost:8001/.
+5. The API will be available at http://localhost:8000/.
 
 ## API Endpoints
 
